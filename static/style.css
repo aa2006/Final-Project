@@ -1,0 +1,312 @@
+html {
+    scroll-behavior:smooth;
+}
+body {
+    overflow-x:hidden;
+    text-align:center;
+    font-family:"Lucida Console", monospace;
+    background-color:black;
+    vertical-align:middle;
+    color:white;
+}
+h1 {
+    color:lightgreen;
+}
+
+.bio {
+    margin-left:15vw;
+    margin-right: 15vw;
+}
+
+textarea {
+    background-color: black;
+    color: lightgreen;
+}
+
+@keyframes bgcolor {
+    0% {
+        background-color: #400000
+    }
+    10% {
+        background-color:black;
+    }
+    20% {
+        background-color:#330066;
+    }
+    30% {
+        background-color: #003300
+    }
+    40% {
+        background-color:grey;
+    }
+    50% {
+        background-color: #006400;
+    }
+    60% {
+        background-color: #eb670f
+    }
+    70% {
+        background-color:#2F4F4F;
+    }
+    80% {
+        background-color:#483D8B;
+    }
+    90% {
+        background-color: #8B0000
+    }
+
+    100% {
+        background-color: #000080
+    }
+}
+#head {
+    top:0;
+    left:0;
+    padding:1vh;
+    background-color:black;
+    width:100%;
+    height:40px;
+    vertical-align:middle;
+}
+canvas {
+    display:block;
+}
+.content {
+    color:white;
+    padding:5px;
+    background-color:rgba(0,0,0,0.4);
+    position: absolute;
+    margin-top:25vh;
+    margin-bottom:25vh;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+::selection {
+    background-color:lightgreen;
+    color:black;
+}
+.body {
+    color:white;
+    z-index:1;
+    position:absolute;
+    margin-top:100vh;
+}
+.footer {
+    bottom:0;
+}
+input {
+    background-color:black;
+    color:lightgreen;
+}
+.separator {
+    width:100vw;
+    border-top:1px solid white;
+}
+.body-content {
+    margin-top:30px;
+    padding:10px;
+    display:flex;
+}
+form {
+    position:relative;
+}
+@media screen and (max-width:800px) {
+    #join {
+        display:none;
+    }
+}
+.left {
+    float:left;
+    vertical-align:middle;
+    flex:0.8;
+}
+.community {
+    transition:0.6s;
+    font-size:large;
+    background-color:rgba(0, 0, 0, 0.2);
+    border-radius:10px;
+    border:1px solid white;
+    padding:10px;
+}
+.community:hover {
+    transition:0.6s;
+    background-color:black;
+}
+.join {
+    background-color:rgba(255, 255, 255, 0.2);
+    vertical-align:middle;
+    padding:10px;
+}
+#left {
+    padding-top:20vh;
+    background-color:rgba(255, 255, 255, 0.2);
+    border-radius:10px;
+}
+img {
+    width:50%;
+}
+.right {
+    vertical-align:middle;
+    flex:0.8;
+    float:left;
+}
+#right {
+    padding-top:10vh;
+}
+@media screen and (max-width:800px) {
+    .body-content {
+        display:block;
+    }
+}
+.accordion:after {
+  content: '\02795'; /* Unicode character for "plus" sign (+) */
+  font-size: 13px;
+  color: #777;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\2796"; /* Unicode character for "minus" sign (-) */
+}
+/* Style the buttons that are used to open and close the accordion panel */
+.accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  text-align: left;
+  border: none;
+  outline: none;
+  transition: 0.4s;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .accordion:hover {
+  background-color: #ccc;
+}
+
+/* Style the accordion panel. Note: hidden by default */
+.panel {
+  padding: 10px 30px 0px 10px;
+  background-color: rgba(255, 255, 255, 0.2);
+  text-align:left;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+table {
+    width:60%;
+}
+th, td {
+    padding:10px;
+    border: 2px solid white;
+    border-collapse:collapse;
+}
+tr:hover {
+    background-color:rgba(255, 255, 255, 0.2);
+}
+#particles-js {
+        -webkit-animation: bgcolor 20s infinite;
+    animation: bgcolor 10s infinite;
+    -webkit-animation-direction: alternate;
+    animation-direction: alternate;
+    left:0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+}
+#logo {
+    float:left;
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+.dropdown-content {
+    display:none;
+    min-width:160px;
+    position:absolute;
+    z-index:1;
+}
+.dropdown-content a {
+    padding:12px 16px;
+    display:block;
+}
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: rgba(255, 255, 255, 0.2);}
+
+a:hover {
+    transition:0.6s;
+    color:lightgreen;
+}
+
+a {
+    top:0;
+    transition:0.6s;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+.arrow {
+    position: absolute;
+    margin:80vh 0 0 0;
+    left: 0;
+    right: 0;
+}
+.arrow:hover {
+    text-decoration:none;
+}
+.bounce {
+    -moz-animation: bounce 2s infinite;
+    -webkit-animation: bounce 2s infinite;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-30px);
+  }
+  60% {
+    transform: translateY(-15px);
+  }
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+code {
+     word-wrap:break-word;
+     word-break:break-all;
+     overflow-x:hidden;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background-image:linear-gradient(black, green, black);
+    width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    border-radius:20px;
+      background:lightgreen;
+}
+::-webkit-scrollbar-thumb:hover {
+    background:#33cc33;
+}

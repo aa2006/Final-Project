@@ -1,0 +1,58 @@
+{% extends "loggedlayout.html" %}
+
+{% block title %}
+    Home | {{ fname }} {{ lname }}
+{% endblock %}
+
+{% block body %}
+    <h1>Welcome to your dashboard</h1><br><br>
+    <p style="width:100%; background-color:red">This site is still under construction. For best results, please view on a computer.</p>
+    <div class="body" id="body" style="margin-top:-5vh;">
+        <div class="body-content">
+            <div class="left" id="left">
+                <a href="/articles"><h1>Articles:</h1></a>
+                <p>Click on the articles button to go to the articles page, where you can choose from a wide selection of articles about encryption, decryption, programming, and cybersecurity.</p>
+            </div>
+            <div class="right" id="right">
+                <img src="../static/articles.svg">
+            </div>
+        </div>
+        <div class="body-content">
+            <div class="left" id="right">
+                <img src="../static/videos.svg">
+            </div>
+            <div class="right" id="left">
+                <a href="/videos"><h1>Videos</h1></a>
+                <p>Click on the videos button to go to the videos page, where you can choose from a wide variety of videos about encryption, decryption, programming, and cybersecurity.</p>
+            </div>
+        </div>
+        <div class="body-content">
+            <div class="left" id="left">
+                <a href="/labs"><h1>Labs</h1></a>
+                <p>Click on the labs button to go to the labs page, where you can choose from a wide selection of labs about encryption, decryption, programming, and cybersecurity.</p>
+            </div>
+            <div class="right" id="right">
+                 <img src="../static/hacker.svg">
+            </div>
+        </div>
+        <div class="body-content">
+            <div class="left" id="right">
+                <img src="../static/leaderboard.svg">
+            </div>
+            <div class="right" id="left">
+                <a href="/leaderboard"><h1>Leaderboard</h1></a>
+                <p>                Click on the leaderboard button to go to the leaderboard page, where you can see how you rank worldwide. Collect points by completing labs.</p>
+            </div>
+        </div>
+            <div class="footer">
+        <div class="separator"></div>
+        <br>
+        <a href="/"><h1 style="float:left; padding:10px">Encryption.com</h1></a>
+        <p>The world never stops changing. Neither do we.</p>
+    </div>
+    </div>
+{% endblock %}
+
+{% block userinfo %}
+    {{ fname }} {{ lname }}
+{% endblock %}

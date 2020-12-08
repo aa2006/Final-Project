@@ -1,0 +1,24 @@
+{% extends "loggedlayout.html" %}
+
+{% block title %}
+    View {{ otherUserUsername }}'s Profile 
+{% endblock %}
+
+{% block body %}
+    <br><br>
+    <h1>{{ otherUserUsername }}'s profile:</h1>
+    <h3>Name:</h3>
+    <p>{{ otherUserFname }} {{ otherUserLname }}</p>
+    <h3>Username:</h3>
+    <p>{{ otherUserUsername }}</p>
+    <h3>Problems:</h3>
+    <p>{{ otherUserProblems }}</p>
+    <h3>Total Points:</h3>
+    <p>{{ otherUserPoints }}</p>
+    <h3>Bio:</h3>
+    <p class="bio">{{ otherUserBio }}</p>
+{% endblock %}
+
+{% block userinfo %}
+    {{ fname }} {{ lname }}
+{% endblock %}

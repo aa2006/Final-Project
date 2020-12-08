@@ -1,0 +1,236 @@
+{% extends "loggedlayout.html" %}
+
+{% block title %}
+    Articles | {{ fname }} {{ lname }}
+{% endblock %}
+
+{% block body %}
+    <h1>Articles</h1>
+    <br><br><br>
+    <h3 style="float:left; padding:10px;">Essentials:</h3>
+    <button class="accordion">What is cryptography?</button>
+    <div class="panel">
+      <h1>What is cryptography and encryption?</h1>
+      <p>Cryptography is a the study and exploration of techniques of more secure communication in the presence of third parties (also known as 'adversaries'). It relies on the construction and analysation of 'protocols' that prevent third party adversaries from reading private messages.</p>
+      <h1>Cryptographic terms:</h1>
+      <ul>
+          <li id="encryption"><strong>Encryption:</strong> the process of taking some plain text, called 'plaintext', and converting it into an unrecognizable text, called 'ciphertext'. It relies on an encryption 'algorithm', which we will see later.</li>
+          <li><strong>Decryption:</strong> is the opposite of <a href="#encryption">encryption</a>, and is the process of taking some ciphertext, and converting it into plaintext.</li>
+          <li><strong>Cipher:</strong> the pair of algorithms (or sets of instructions), that enable us to go from plaintext to ciphertext.</li>
+          <li><strong>Key:</strong> each instance of the cipher is controlled by the key, usually a short string of characters that is kept secret and is necessary in order to crack the ciphertext.</li>
+          <li><strong>Cryptosystem:</strong> the ordered list of all possible plaintexts, ciphertexts, keys, and algorithms which correspond to each key. There are 2 types of cryptosystems:
+          <ul>
+            <li><strong>Symmetric:</strong> The same key is used to both encrypt and decrypt messages. It is usually faster to manipulate data with a symmetric cryptosystem then an assymetric one because the keys are usually shorter.</li>
+            <li><strong>Assymetric:</strong> These cryptosystems use a public key to encrypt but a private key to decrypt messages. These types of cryptosystems are used to enhance the security of communication.</li>
+          </ul></li>
+      </ul>
+    </div>
+
+    <button class="accordion">Common Ciphers</button>
+    <div class="panel">
+      <h1>Common ciphers:</h1>
+      <ul>
+        <li><strong>The Caesar Cipher:</strong> The simplest of them all, named after Julius Caesar, who used it to encode military ciphers. All you have to do is substitute each letter in the alphabet by shifting it right or left by a specific number of letters. Today, we can break this code in our sleep, but it took ancient codebreakers 800 years to learn how to crack it - and nearly another 800 years to come up with anything better. You can practice it by going to the <a href="/labs/easy">First Lab</a></li>
+        <li><strong>Alberti's Disk:</strong> In 1467, architect Leon Battista Alberti described a curious device. It was a disk made up of two concentric rings: the outer ring engraved with a standard alphabet, and the inner ring, engraved with the same alphabet but written out of order. By rotating the inner ring and matching letters across the disk, a message could be enciphered, one letter at a time, in a fiendishly complex way.</li>
+        <li><strong>The Vigen&egrave;re Square:</strong> This cipher uses a combination of Caesar ciphers using a word as a key. For example, if I wanted to encrypt the word 'Hello', and the key was the word 'Hi', then I would then substitute the word 'Hi' as '7 8' (H is the 7th letter in the alphabet and I is the 8th), then I would take 'Hello', and then replace it as 'H+7 e+8 l+7 l+8 o+7' ('H+H e+i l+h l+i o+h).Then substitute the appropriate letter: 'O m s t v' to get 'Omstv' as the ciphertext.</li>
+      </ul>
+    </div>
+
+    <button class="accordion">Computer Programs</button>
+    <div class="panel">
+      <h6>This website was made as my final project for CS50x 2020, and the Caesar program was actually a problemset in the course.</h6>
+      <h1>Caesar Cipher:</h1>
+      <p>Here is a simple C program that encrypts any given text with a key using the Caesar Cipher: (requires the CS50 <a href="https://cs50.readthedocs.io/libraries/cs50/c/">Library</a>)</p>
+<pre  style="background-color:white; padding:10px; border-radius:10px;">
+<code class="code">
+#include &lt;stdio.h&gt;
+#include &lt;cs50.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main(int argc, string argv[])
+{
+    //Check if a command-line argument was passed
+    if (argc == 2)
+    {
+        int truth = 1;
+        for (int i = 0; i < strlen(argv[1]); i ++)
+        {
+            //Check if characters are numbers
+            if (argv[1][i] != '0' && argv[1][i] != '1' && argv[1][i] != '2' && argv[1][i] != '3' && argv[1][i] != '4' && argv[1][i] != '5'
+                && argv[1][i] != '6' && argv[1][i] != '7' && argv[1][i] != '8' && argv[1][i] != '9')
+            {
+                truth *= 0;
+            }
+        }
+        //User did not cooperate
+        if (truth == 0)
+        {
+            printf("Usage: ./caesar key\n'");
+            return 1;
+        }
+        //User cooperated
+        else
+        {
+            //Convert string to int
+            int a = atoi(argv[1]);
+            //prompt for plaintext
+            string S = get_string("plaintext: ");
+            //generate ciphertext;
+            for (int j = 0; j < strlen(S); j ++)
+            {
+                if (S[j] >= 65 && S[j] <= 90)
+                {
+                    for (int k = 0; k < a; k ++)
+                    {
+                        if (S[j] == 'Z')
+                        {
+                            S[j] = 'A';
+                        }
+                        else
+                        {
+                            S[j] ++;
+                        }
+                    }
+                }
+                else if (S[j] >= 97 && S[j] <= 122)
+                {
+                    for (int k = 0; k < a; k ++)
+                    {
+                        if (S[j] == 'z')
+                        {
+                            S[j] = 'a';
+                        }
+                        else
+                        {
+                            S[j] ++;
+                        }
+                    }
+                }
+            }
+            //print ciphertext
+            printf("ciphertext: %s\n", S);
+            return 0;
+        }
+
+    }
+    //user did not cooperate
+    else
+    {
+        printf("Usage: ./caesar key\n");
+        return 1;
+    }
+    //exit safely
+
+}
+</code>
+</pre>
+    <p>The key is provided when running the program, for example, if I want my key to be 2 (that's a hint you can use somewhere), I will save the program as caesar.c and compile it as 'gcc caesar.c -o caesar' and run it as './caesar 2', where 2 is the key.</p>
+    <h1>Vigen&egrave;re Square</h1>
+    <p>This one is in C++</p>
+<pre style="background-color:white; padding:10px; border-radius:10px;">
+<code>
+#include &lt;bits/stdc++.h&gt;
+using namespace std;
+
+// This function generates the key in
+// a cyclic manner until it's length is'nt
+// equal to the length of original text
+string generateKey(string str, string key)
+{
+    int x = str.size();
+
+    for (int i = 0; ; i++)
+    {
+        if (x == i)
+            i = 0;
+        if (key.size() == str.size())
+            break;
+        key.push_back(key[i]);
+    }
+    return key;
+}
+
+// This function returns the encrypted text
+// generated with the help of the key
+string cipherText(string str, string key)
+{
+    string cipher_text;
+
+    for (int i = 0; i < str.size(); i++)
+    {
+        // converting in range 0-25
+        char x = (str[i] + key[i]) %26;
+
+        // convert into alphabets(ASCII)
+        x += 'A';
+
+        cipher_text.push_back(x);
+    }
+    return cipher_text;
+}
+
+// This function decrypts the encrypted text
+// and returns the original text
+string originalText(string cipher_text, string key)
+{
+    string orig_text;
+
+    for (int i = 0 ; i < cipher_text.size(); i++)
+    {
+        // converting in range 0-25
+        char x = (cipher_text[i] - key[i] + 26) %26;
+
+        // convert into alphabets(ASCII)
+        x += 'A';
+        orig_text.push_back(x);
+    }
+    return orig_text;
+}
+
+// Driver program to test the above function
+int main()
+{
+    string str;
+    string keyword;
+    cout << "Enter text: ";
+    cin >> str;
+    cout << "Enter key: ";
+    cin >> keyword;
+
+    string key = generateKey(str, keyword);
+    string cipher_text = cipherText(str, key);
+
+    cout << "Ciphertext : "
+         << cipher_text << "\n";
+
+    cout << "Original/Decrypted Text : "
+         << originalText(cipher_text, key);
+    return 0;
+}
+</code>
+</pre>
+<p>This example doesn't require any command-line arguments. You will be prompted for everything while running the program</p>
+    </div>
+
+    <script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight) {
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    }
+  });
+}
+</script>
+{% endblock %}
+
+{% block userinfo %}
+    {{ fname }} {{ lname }}
+{% endblock %}

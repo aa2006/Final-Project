@@ -1,0 +1,32 @@
+{% extends "loggedlayout.html" %}
+
+{% block title %}
+    Leaderboard | {{ fname }} {{ lname }}
+{% endblock %}
+
+{% block body %}
+    <h1>World Leaderboard</h1>
+    <h3>Top 500</h3>
+    <table style="margin-left:auto; margin-right:auto; padding:15px; border:2px solid white; ">
+        <tr>
+            <th>Position</th>
+            <th>Name</th>
+            <th>Username</th>
+            <th>Problems</th>
+            <th>Points</th>
+        </tr>
+        {% for row in rows %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td><a href='/viewprofile/{{ row["id"] }}'>{{ row["fname"] }}</a></td>
+                <td>{{ row["username"] }}</td>
+                <td>{{ row["problems"] }}</td>
+                <td>{{ row["points"] }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
+
+{% block userinfo %}
+    {{ fname }} {{ lname }}
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Sign Up
+{% endblock %}
+
+{% block body %}
+    <br><br>
+    <h1>Sign Up:</h1>
+    <form method="post" action="/register" id="registration">
+        <label for="fname">Name:</label><br>
+        <input type="text" name="fname" placeholder="First Name" required>
+        <input type="text" name="lname" placeholder="Last Name" required><br><br>
+        <label for="username">Username:</label><br>
+        <input type="text" name="username" placeholder="Username" required><br><br>
+        <label for="birth">Choose your date of birth:</label><br>
+        <input type="date" name="birth" required><br><br>
+        <label for="email">Email:</label><br>
+        <input type="email" name="email" placeholder="email" required><br><br>
+        <label for="pwd">Create Password</label><br>
+        <input type="password" name="pwd" placeholder="Password" required>
+        <input type="password" name="confirmation" placeholder="Confirm Password" required><br><br>
+        <input type="submit" value="Sign Up">
+    </form>
+{% endblock %}

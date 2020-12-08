@@ -1,0 +1,22 @@
+{% extends "loggedlayout.html" %}
+
+{% block title %}
+    First Lab | {{ fname }} {{ lname }}
+{% endblock %}
+
+{% block body %}
+    <h1>First Lab</h1>
+    <p>This lab will give you 5 points. It's just to get you used to working with labs. You will decrypt the following message with a simple Caesar Cipher and enter it below. If it is right, you will get 5 points and be redirected to the leaderboard. If it isn't, you won't. It's simple. And if you try to submit it twice, it's going to return you to the labs page :) Hint: Use <a href="http://www.asciitable.com/">ASCII</a> encoding.</p>
+    <br><br>
+    <p style="color:lightgreen">
+        Jgnnq Yqtnf! Ygneqog vq Gpet{rvkqp.eqo!
+    </p>
+    <form action="/labs/easy" method="post">
+        <input type="text" name="submission" placeholder="Plaintext">
+        <input type="submit">
+    </form>
+{% endblock %}
+
+{% block userinfo %}
+    {{ fname }} {{ lname }}
+{% endblock %}

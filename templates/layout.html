@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- documentation at http://getbootstrap.com/docs/4.1/, alternative themes at https://bootswatch.com/ -->
+        <link rel="icon" href="../static/favicon.ico">
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+        <link rel='stylesheet' href='/static/style.css'>
+                <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+        <script src="https://kit.fontawesome.com/8b9acd730c.js" crossorigin="anonymous"></script>
+
+        <title>
+            {% block title %}
+
+            {% endblock %}
+        </title>
+    </head>
+    <body>
+        <div id="head">
+            <div id="links">
+                <a href="/"><img src="../static/Encryption.com.png" style="height:12vh; width:12vh; top:0; left:0; float:left; margin-top:-25px; margin-left:-5px;"></a>
+                {% if session.user_id %}
+                    <a href="/videos" class="logo">Videos</a>
+                    <a href="/articles" class="logo">Articles</a>
+                    <a href="/labs" class="logo">Labs</a>
+                    <a href="/leaderboard" class="logo">Leaderboard</a>
+                    {% block user %}
+
+                    {% endblock %}
+                {% else %}
+                    <a href="/register" style="float:right;">Sign Up</a>
+                    <a href="/login" style="float:right;">Login||</a>
+                {% endif %}
+            </div>
+        </div>
+        {% block body %}
+
+        {% endblock %}
+
+    </body>
+</html>

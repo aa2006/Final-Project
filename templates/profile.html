@@ -1,0 +1,31 @@
+{% extends "loggedlayout.html" %}
+
+{% block title %}
+    Profile | {{ fname }} {{ lname }}
+{% endblock %}
+
+{% block body %}
+    <br><br>
+    <h1>{{ fname }} {{ lname }}'s profile:</h1>
+    <h3>Name:</h3>
+    <p>{{ fname }} {{ lname }}</p>
+    <h3>Email:</h3>
+    <p>{{ email }}</p>
+    <h3>Password</h3>
+    <a href="/changepassword">Change Password</a>
+    <h3>Problems Solved:</h3>
+    <p>{{ problems }}</p>
+    <h3>Total Points</h3>
+    <p>{{ points }} | Check your position on the <a href="/leaderboard">Leaderboard</a></p>
+    <h3>Bio:</h3>
+    {% if bio == None %}
+        <p class="bio">Click Update Bio to add your bio. Include anything interesting about yourself, your contact info...</p>
+    {% else %}
+        <p class="bio">{{ bio }}</p>
+    {% endif %}
+    <a href="/writebio">Update Bio</a>
+{% endblock %}
+
+{% block userinfo %}
+    {{ fname }} {{ lname }}
+{% endblock %}

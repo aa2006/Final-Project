@@ -1,0 +1,16 @@
+{% extends "loggedlayout.html" %}
+
+{% block title %}
+    Labs | {{ fname }} {{ lname }}
+{% endblock %}
+
+{% block body %}
+    <h1>Labs</h1>
+    <ol style="margin-left:20vw; text-align:left;">
+        <li><a href="/labs/easy">Easy Lab</a></li>
+    </ol>
+{% endblock %}
+
+{% block userinfo %}
+    {{ fname }} {{ lname }}
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "loggedlayout.html" %}
+
+{% block title %}
+    Edit Bio | {{ fname }} {{ lname }}
+{% endblock %}
+
+{% block body %}
+    <h1>Edit your bio:</h1>
+    <form action="/writebio" method="post">
+        <textarea placeholder="{{ bio }}" name="bio" id="bio"></textarea>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+{% endblock %}
+
+{% block userinfo %}
+    {{ fname }} {{ lname }}
+{% endblock %}

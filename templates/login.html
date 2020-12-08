@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block body %}
+<div class="body" id="body" style="text-align:center; display:block; margin-left:auto; margin-right:auto">
+
+    <div style="margin-top:-80vh;">
+        <img src="../static/login.svg" style="width:25%"><br>
+        <h1>Login</h1>
+        <form action="/login" method="post"><br>
+        <input type="text" name="username" placeholder="Username" required><br><br>
+        <input type="password"  name="password" placeholder="Password" required><br><br>
+        <input type="submit" value="Log In">
+        </form>
+    </div>
+
+    <div class="footer" style="position:absolute;bottom:0;">
+        <div class="separator"></div>
+        <br>
+        <a href="/"><h1 style="float:left; padding:10px">Encryption.com</h1></a>
+        <p>The world never stops changing. Neither do we.</p>
+    </div>
+</div>
+{% endblock %}
